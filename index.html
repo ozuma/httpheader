@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Viewer: HTTP Response Header</title>
+<style type="text/css">
+body { 
+  background:white;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+p {
+  line-height: 140%;
+  margin-left: 2%;
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #ffffff;
+  background-color: #8888cc;
+  padding: 1px 1px 4px 0.5em;
+  border-top: 2px solid #4444bb;
+  border-bottom: 2px solid #4444bb;
+  font-weight: bold;
+}
+
+h2 {
+  color: #101084;
+  margin-left: 0.5%;
+  padding: 2px 0px 2px 0.5em;
+  text-align: left;
+  border-top: 2px dotted #9944bb;
+  border-bottom: 2px dotted #9944bb;
+  border-left: 20px solid #9944bb;
+}
+
+h3 {
+  color: #111184;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px dotted gray;
+  border-left: 2px solid gray;
+  padding: 0px 0px 0px 0.5em;
+  margin-left: 1%;
+}
+
+pre {
+  margin-right: 10%;
+  margin-left: 5%;
+}
+
+pre.source {
+  font-family: monospace;
+  border-width: 0.05em 0.05em 0.05em 0.05em;
+  border-style: solid solid solid solid;
+  padding: 0.6em 0.6em 0.6em 1.5em;
+  background-color: #eeffee;
+  border-color: #99cc98 
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  $("input#url-submit").click(function() {
+    var inputText = $("input#url_textbox").val();
+    $.post("_header.cgi", {url: inputText}, function(data, status) {
+      $("pre#result").text(data);
+    }, "text");
+  });
+});
+</script>
+</head>
+
+<body>
+
+<h2>HTTP Response Header Viewer</h2>
+<p>URL: <input type="text" id="url_textbox" name="url" size="128" value="http://ozuma.sakura.ne.jp/" /></p>
+
+<p>
+<input type="button" id="url-submit" value=" get a header "></input>
+</p>
+
+<h2>Result</h2>
+<pre class="source" id="result">Response Header here.</pre>
+
+<div align="right">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5307948892287547";
+/* kaoni text banner */
+google_ad_slot = "1960056101";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+&nbsp;
+
+<h2>About me</h2>
+<p>I’m a Web/Network engineer, live in Tokyo, Japan. My nickname is "ozuma".</p>
+
+<ul>
+  <li><a href="http://ozuma.txt-nifty.com/about.html">ozuma's profile</a> (Japanese)</li>
+  <li>Flickr(Photo): <a href="http://www.flickr.com/photos/ozuma">http://www.flickr.com/photos/ozuma</a></li>
+  <li>Twitter: <a href="https://twitter.com/ozuma5119">https://twitter.com/ozuma5119</a></li>
+  <li>mailto: ozuma5119 [at] nifty.com</li>
+</ul>
+
+</body>
+</html>
+
